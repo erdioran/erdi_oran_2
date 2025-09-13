@@ -1,0 +1,29 @@
+{
+  "SEPET_FIYAT": {
+    "value": "//span[@class='priceBox__salePrice']",
+    "type": "xpath"
+  },
+  "SEPET_ADET_BOX": {
+    "value": "quantitySelect0-key-0",
+    "type": "id"
+  },
+  "SEPET_ADET_BOX_2": {
+    "value": "//option[@value='2']",
+    "type": "xpath"
+  },
+  "SEPET_SIL_BUTTON": {
+    "value": "#removeCartItemBtn0-key-0",
+    "type": "cssSelector"
+  },
+  "SEPET_URUN_1": {
+    "value": "(//div[@class='m-basket__content'])[1]",
+    "type": "xpath"
+  },
+  "SEPET_MESSAGE_URUN_BULUNMAMAKTADIR": {
+    "value": "//strong[contains(text(),'Sepetinizde Ürün Bulunmamaktadır')]",
+    "type": "xpath"
+  }
+}
+
+
+

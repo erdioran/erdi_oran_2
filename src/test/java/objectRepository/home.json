@@ -1,0 +1,23 @@
+{
+  "HESABIM": {
+    "value": "//span[contains(text(),'Hesabım')]",
+    "type": "xpath"
+  },
+  "SEARCH_BAR": {
+    "value": "//input[@placeholder='Ürün, Marka Arayın']",
+    "type": "xpath"
+  },
+  "SEARCH_BAR_FOCUS": {
+    "value": "o-searchSuggestion__input",
+    "type": "id"
+  },
+  "SEARCH_BAR_SIL_BUTTON": {
+    "value": "//button[normalize-space()='Sil']",
+    "type": "xpath"
+  },
+  "SEPETIM_BUTTON": {
+    "value": "//a[@title='Sepetim']//span[@class='o-header__userInfo--text']",
+    "type": "xpath"
+  }
+}
+

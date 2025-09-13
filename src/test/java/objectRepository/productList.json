@@ -1,0 +1,7 @@
+{
+  "URUN_LIST_PHOTO_LIST": {
+    "value": "//div[contains(@class,'m-productCard__photo')]",
+    "type": "xpath"
+  }
+}
+

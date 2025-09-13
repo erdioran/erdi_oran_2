@@ -1,0 +1,11 @@
+{
+  "POPUP_KAPAT_BUTTON": {
+    "value": "//button[@class='o-modal__closeButton bwi-close']",
+    "type": "xpath"
+  },
+  "COOKIES_KABUL_BUTTON": {
+    "value": "onetrust-accept-btn-handler",
+    "type": "id"
+  }
+}
+

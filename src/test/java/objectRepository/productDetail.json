@@ -1,0 +1,22 @@
+{
+  "URUN_MARKA": {
+    "value": ".o-productDetail__brandLink",
+    "type": "cssSelector"
+  },
+  "URUN_DETAY": {
+    "value": ".o-productDetail__description",
+    "type": "cssSelector"
+  },
+  "URUN_FIYAT": {
+    "value": "priceNew",
+    "type": "id"
+  },
+  "URUN_BEDEN_LIST": {
+    "value": "/html[1]/body[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/span",
+    "type": "xpath"
+  },
+  "SEPETE_EKLE_BUTTON": {
+    "value": "addBasket",
+    "type": "id"
+  }
+}
