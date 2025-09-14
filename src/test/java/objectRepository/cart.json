@@ -8,12 +8,12 @@
     "type": "id"
   },
   "SEPET_ADET_BOX_2": {
-    "value": "//option[@value='2']",
+    "value": "//select[@id='quantitySelect0-key-0']//option[@value='2']",
     "type": "xpath"
   },
   "SEPET_SIL_BUTTON": {
-    "value": "#removeCartItemBtn0-key-0",
-    "type": "cssSelector"
+    "value": "removeCartItemBtn0-key-0",
+    "type": "id"
   },
   "SEPET_URUN_1": {
     "value": "(//div[@class='m-basket__content'])[1]",

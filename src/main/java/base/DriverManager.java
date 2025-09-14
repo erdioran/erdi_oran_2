@@ -83,8 +83,7 @@ public class DriverManager {
             options.addArguments("--headless=new");
             options.addArguments("--window-size=1920,1080");
         }
-        
-        // Disable popup blocking
+
         options.addArguments("--disable-popup-blocking");
         
         return new ChromeDriver(options);
@@ -117,12 +116,11 @@ public class DriverManager {
     }
 
     private static void configureDriver(WebDriver driver) {
-        // Window management
+
         if (!ConfigManager.isHeadless()) {
             driver.manage().window().maximize();
         }
         
-        // Timeouts
         int implicitWait = ConfigManager.getIntValue("implicit.wait.time", 10);
         int pageLoadTimeout = ConfigManager.getIntValue("page.load.time.out", 60);
         

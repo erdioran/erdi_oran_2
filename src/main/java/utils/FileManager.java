@@ -19,8 +19,7 @@ public class FileManager {
     public static void writeToFile(String content ) {
         try {
             Path path = Paths.get("src/test/resources/productInfo.txt");
-            
-            // Klasör yoksa oluştur
+
             if (path.getParent() != null) {
                 Files.createDirectories(path.getParent());
             }

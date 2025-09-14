@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63a56cf9-742c-464d-a386-363a216bd553" name="Changes" comment="" />
+    <list default="true" id="63a56cf9-742c-464d-a386-363a216bd553" name="Changes" comment="v1">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/base/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/DriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listener/AnnotationTransformer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listener/ExecutionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listener/RetryAnalyzer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listener/SeleniumListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listener/TestListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ExcelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ExcelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/AutomationMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/AutomationMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/RunCucumberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/RunnerFailed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/StepDefinitionsGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/StepDefinitionsGeneral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/objectRepository/cart.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/objectRepository/cart.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/cucumber.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/cucumber.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/productInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/productInfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testSuite/failed_test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testSuite/test_runner.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +41,9 @@
     "assignee": "erdioran"
   }
 }]]></component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="b04d06ec-6bd4-46e0-8b1d-9d1679b196a3" />
+  </component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/erdioran/erdi_oran_2.git",
@@ -41,8 +66,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.FailedRunCucumberTest.executor": "Debug",
+    "JUnit.RunCucumberTest.executor": "Debug",
+    "Maven.Erdi_Oran_Web_Automation [test...].executor": "Run",
+    "Maven.Erdi_Oran_Web_Automation [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Shell Script.run_with_retry.sh.executor": "Run",
+    "Shell Script.run_with_retry_simple.sh.executor": "Run",
     "TestNG./Users/erdioran/IdeaProjects2/erdi_oran_2/testSuite/test_runner.xml.executor": "Debug",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/erdioran/IdeaProjects2/erdi_oran_2/src/test/java/objectRepository",
@@ -64,7 +95,43 @@
       <recent name="base" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn test -Dtest=RunCucumberTest" />
+      <command value="mvn test" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.RunCucumberTest">
+    <configuration name="FailedRunCucumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Auto_Admin_Dashboard_UI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.skeleton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.cucumber.skeleton" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.skeleton.FailedRunCucumberTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunCucumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Auto_Admin_Dashboard_UI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.skeleton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.cucumber.skeleton" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.skeleton.RunCucumberTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="erdi_oran_2" />
       <method v="2">
@@ -74,6 +141,36 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="erdi_oran_2" />
       <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_with_retry.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/run_with_retry.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_with_retry_simple.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/run_with_retry_simple.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="/Users/erdioran/IdeaProjects2/erdi_oran_2/testSuite/test_runner.xml" type="TestNG" temporary="true" nameIsGenerated="true">
@@ -88,6 +185,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RunCucumberTest" />
+        <item itemvalue="JUnit.FailedRunCucumberTest" />
+        <item itemvalue="Shell Script.run_with_retry.sh" />
+        <item itemvalue="Shell Script.run_with_retry_simple.sh" />
         <item itemvalue="TestNG./Users/erdioran/IdeaProjects2/erdi_oran_2/testSuite/test_runner.xml" />
       </list>
     </recent_temporary>
@@ -100,6 +201,19 @@
       <option name="presentableId" value="Default" />
       <updated>1757760487257</updated>
     </task>
+    <task id="LOCAL-00001" summary="v1">
+      <option name="closed" value="true" />
+      <created>1757803316661</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757803316661</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1" />
   </component>
 </project>

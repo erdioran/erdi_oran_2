@@ -3,7 +3,6 @@ package utils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.nio.file.Paths;
@@ -51,14 +50,6 @@ public class ConfigManager {
         return getIntValue("explicit.wait.time", 45);
     }
 
-    public static Integer maxClickTry() {
-        return getIntValue("max.try.element.click", 5);
-    }
-
-    public static Integer getMaxRetryCount() {
-        return Integer.parseInt(System.getProperty("max.retry.count", getStringValue("max.retry.count", String.valueOf(1))));
-    }
-
 
 
     public static String getBrowser() {
@@ -79,7 +70,9 @@ public class ConfigManager {
     }
 
     public static String getRunTimeValue(String key, String defaultValue) {
-        Assert.assertTrue(StringUtils.isNotBlank(key), "Key can not be null");
+        if (StringUtils.isBlank(key)) {
+            throw new IllegalArgumentException("Key can not be null");
+        }
         if (StringUtils.isNotBlank(System.getenv(key))) {
             return System.getenv(key);
         } else if (StringUtils.isNotBlank(System.getProperty(key))) {

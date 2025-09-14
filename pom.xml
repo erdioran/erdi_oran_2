@@ -21,7 +21,8 @@
         <commons.io.version>2.11.0</commons.io.version>
         <commons-lang.version>2.6</commons-lang.version>
         <cucumber.version>7.10.1</cucumber.version>
-        <cucumberTestng.version>7.10.1</cucumberTestng.version>
+        <cucumberJunit.version>7.10.1</cucumberJunit.version>
+        <junit.version>5.9.2</junit.version>
         <skipTests>false</skipTests>
         <javafaker.version>1.0.2</javafaker.version>
         <selenium.version>4.15.0</selenium.version>
@@ -77,8 +78,21 @@
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumberTestng.version}</version>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>${cucumberJunit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -130,15 +144,23 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.0.0-M9</version>
                 <configuration>
                     <skipTests>${skipTests}</skipTests>
                     <forkCount>1</forkCount>
                     <reuseForks>false</reuseForks>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>testSuite/test.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <argLine>-Dtestng.dtd.http=true</argLine>
+                    <testClassesDirectory>${project.build.testOutputDirectory}</testClassesDirectory>
+                    <includes>
+                        <include>io/cucumber/skeleton/RunCucumberTest.java</include>
+                    </includes>
+                    <excludes>
+                        <exclude>**/*Test*.java</exclude>
+                        <exclude>**/*Tests*.java</exclude>
+                        <exclude>**/*TestCase*.java</exclude>
+                    </excludes>
+                    <systemPropertyVariables>
+                        <junit.jupiter.execution.parallel.enabled>false</junit.jupiter.execution.parallel.enabled>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

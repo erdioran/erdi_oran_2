@@ -9,9 +9,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.junit.jupiter.api.Assertions;
 import utils.ExcelManager;
+
+import java.time.Duration;
 
 import static utils.ElementManager.returnElement;
 import static utils.Helper.*;
@@ -24,13 +31,6 @@ public class StepDefinitionsGeneral {
     private static final Logger LOGGER = LogManager.getLogger(StepDefinitionsGeneral.class);
 
     int listSize;
-    static String testClientName;
-    static String testMail;
-    static String testUserName;
-    static String testRouteName;
-    static String testFormatDatePrevious;
-    static String testFormatDateNext;
-    static int repaymentIndex;
 
 
     @And("Open home page")
@@ -94,7 +94,7 @@ public class StepDefinitionsGeneral {
     public void getQuantityValue(String value) throws Exception {
         String quantity = AutomationMethods.getAriaLabel("SEPET_ADET_BOX");
         LOGGER.info("Seçili miktar: " + quantity);
-        Assert.assertEquals(value+" adet", quantity);
+        Assertions.assertEquals(value + " adet", quantity);
     }
 
     @And("Wait {int} second")
@@ -137,16 +137,15 @@ public class StepDefinitionsGeneral {
 
     @And("Assert {string} element is visible")
     public void assertElementIsVisible(String element) throws Exception {
-        Assert.assertTrue(elementVisibiltyWithSize(element));
+        boolean isVisible = waitForElementToBeVisible(element, 10);
+        Assertions.assertTrue(isVisible, "Element '" + element + "' should be visible but was not found");
     }
 
     @And("Assert {string} element is not visible")
     public void assertElementIsNotVisible(String element) throws Exception {
-        if (element.equals("CLIENT_Test_Client_Auto")) {
-            Assert.assertFalse(elementVisibiltyWithSize(By.xpath("//td[@title='" + StepDefinitionsGeneral.testClientName + "']")));
-        } else {
-            Assert.assertFalse(elementVisibiltyWithSize(element));
-        }
+        boolean isInvisible = waitForElementToBeInvisible(element, 10);
+        Assertions.assertTrue(isInvisible, "Element '" + element + "' should not be visible but was found");
+
     }
 
     @And("Enter {string} text in {string}")
@@ -156,12 +155,12 @@ public class StepDefinitionsGeneral {
 
     @And("Assert {string} element is {string} text")
     public void assertThatElementIsText(String element, String text) throws Exception {
-        Assert.assertEquals(getText(element), text);
+        Assertions.assertEquals(getText(element), text);
     }
 
     @And("Assert {string} element is {string} disable value")
     public void assertThatElementDisableValue(String element, String text) throws Exception {
-        Assert.assertEquals(getDisableValue(element), text);
+        Assertions.assertEquals(getDisableValue(element), text);
     }
 
     @And("Get list size {string}")

@@ -34,15 +34,18 @@ public class AutomationMethods {
 
 
     public static void enterText(String element, String textToEnter) throws Exception {
-        WebElement webElement = findObject(returnElement(element));
+        By by = returnElement(element);
+        WebElement webElement = waitForElementVisible(by);
         webElement.clear();
         webElement.sendKeys(textToEnter);
+        LOGGER.info("Entered text '{}' into element: {}", textToEnter, element);
     }
 
     public static void enterText(By by, String textToEnter) throws Exception {
-        WebElement webElement = findObject(by);
+        WebElement webElement = waitForElementVisible(by);
         webElement.clear();
         webElement.sendKeys(textToEnter);
+        LOGGER.info("Entered text '{}' into element: {}", textToEnter, by.toString());
     }
 
 
@@ -52,7 +55,7 @@ public class AutomationMethods {
 
     public static void clear(String element) throws Exception {
         By by = returnElement(element);
-        WebElement input = DriverManager.getDriver().findElement(by);
+        WebElement input = waitForElementVisible(by);
 
         input.clear();
 
@@ -65,6 +68,7 @@ public class AutomationMethods {
             JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
             js.executeScript("arguments[0].value = '';", input);
         }
+        LOGGER.info("Cleared element: {}", element);
     }
 
     public static String getText(By by) throws Exception {
@@ -76,23 +80,58 @@ public class AutomationMethods {
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
+    public static WebElement waitForElementVisible(By by) throws Exception {
+        FluentWait<WebDriver> wait = getFluentWait();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public static WebElement waitForElementPresent(By by) throws Exception {
+        FluentWait<WebDriver> wait = getFluentWait();
+        return wait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
     public static List<WebElement> waitAllElement(By selector) {
         FluentWait<WebDriver> wait = getFluentWait();
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(selector));
     }
 
-
     public static void click(String element) throws Exception {
-        waitForIntervalsAndClick(returnElement(element), 1, ConfigManager.getExplicitWaitTime());
+        By by = returnElement(element);
+        sleepInSeconds(2);
+        clickWithRetry(by, element);
     }
 
-
     public static void click(By by) throws Exception {
-        waitForIntervalsAndClick(by, 1, ConfigManager.getExplicitWaitTime());
+        clickWithRetry(by, by.toString());
     }
 
     public static void clickPath(By element) throws Exception {
-        waitForIntervalsAndClick(element, 1, ConfigManager.getExplicitWaitTime());
+        clickWithRetry(element, element.toString());
+    }
+
+    private static void clickWithRetry(By by, String elementName) throws Exception {
+        int maxRetries = 3;
+        for (int i = 0; i < maxRetries; i++) {
+            try {
+                WebElement webElement = findObject(by);
+                webElement.click();
+                LOGGER.info("Clicked element: {}", elementName);
+                return;
+            } catch (StaleElementReferenceException e) {
+                LOGGER.warn("StaleElementReferenceException on attempt {} for element: {}. Retrying...", i + 1, elementName);
+                if (i == maxRetries - 1) {
+                    throw new RuntimeException("Failed to click element after " + maxRetries + " attempts due to stale element: " + elementName, e);
+                }
+                // Wait a bit before retry
+                sleepInSeconds(1);
+            } catch (Exception e) {
+                LOGGER.error("Failed to click element: {} on attempt {}", elementName, i + 1, e);
+                if (i == maxRetries - 1) {
+                    throw e;
+                }
+                sleepInSeconds(1);
+            }
+        }
     }
 
 
@@ -119,8 +158,8 @@ public class AutomationMethods {
 
     public static FluentWait<WebDriver> getFluentWait(int intervalInSeconds, int maxWaitTimeInSeconds) {
         return new FluentWait<>(DriverManager.getDriver())
-                .withTimeout(Duration.ofSeconds(intervalInSeconds))
-                .pollingEvery(Duration.ofSeconds(maxWaitTimeInSeconds))
+                .withTimeout(Duration.ofSeconds(maxWaitTimeInSeconds))
+                .pollingEvery(Duration.ofSeconds(intervalInSeconds))
                 .ignoring(NoSuchElementException.class)
                 .ignoring(StaleElementReferenceException.class)
                 .ignoring(ElementClickInterceptedException.class)
@@ -153,11 +192,51 @@ public class AutomationMethods {
 
     public static boolean elementVisibiltyWithSize(String element) throws Exception {
         By by = returnElement(element);
-        return DriverManager.getDriver().findElements(by).size() > 0;
+        try {
+            waitForElementPresent(by);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean waitForElementToBeVisible(String element, int timeoutSeconds) throws Exception {
+        By by = returnElement(element);
+        try {
+            FluentWait<WebDriver> wait = new FluentWait<>(DriverManager.getDriver())
+                    .withTimeout(Duration.ofSeconds(timeoutSeconds))
+                    .pollingEvery(Duration.ofMillis(500))
+                    .ignoring(NoSuchElementException.class)
+                    .ignoring(StaleElementReferenceException.class);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static boolean waitForElementToBeInvisible(String element, int timeoutSeconds) throws Exception {
+        By by = returnElement(element);
+        try {
+            FluentWait<WebDriver> wait = new FluentWait<>(DriverManager.getDriver())
+                    .withTimeout(Duration.ofSeconds(timeoutSeconds))
+                    .pollingEvery(Duration.ofMillis(500))
+                    .ignoring(NoSuchElementException.class)
+                    .ignoring(StaleElementReferenceException.class);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public static boolean elementVisibiltyWithSize(By by) throws Exception {
-        return DriverManager.getDriver().findElements(by).size() > 0;
+        try {
+            waitForElementPresent(by);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 
@@ -374,7 +453,6 @@ public class AutomationMethods {
     }
 
     public static int getClickableSizeCount() throws Exception {
-        // Try multiple selectors for size elements
         String[] sizeSelectors = {
             "//span[@class='m-variation__item' and not(contains(@class, '-disabled'))]",
             "//span[contains(@class, 'm-variation__item') and not(contains(@class, 'disabled'))]",
@@ -391,8 +469,7 @@ public class AutomationMethods {
                 return count;
             }
         }
-        
-        // Fallback: try to find any size elements and check if they're clickable
+
         By fallbackSelector = returnElement("URUN_BEDEN_LIST");
         List<WebElement> allSizes = DriverManager.getDriver().findElements(fallbackSelector);
         int clickableCount = 0;
@@ -417,7 +494,7 @@ public class AutomationMethods {
             throw new RuntimeException("Invalid clickable size number: " + sizeNumber + ". Total clickable sizes: " + clickableSizeCount);
         }
         
-        // Try multiple selectors for clicking sizes
+
         String[] sizeSelectors = {
             "(//span[@class='m-variation__item' and not(contains(@class, '-disabled'))])[" + sizeNumber + "]",
             "(//span[contains(@class, 'm-variation__item') and not(contains(@class, 'disabled'))])[" + sizeNumber + "]",
@@ -441,8 +518,7 @@ public class AutomationMethods {
                 LOGGER.debug("Failed to select size with selector: {}, error: {}", selector, e.getMessage());
             }
         }
-        
-        // Fallback: try using the element from JSON
+
         if (!sizeSelected) {
             try {
                 By fallbackSelector = returnElement("URUN_BEDEN_LIST");

@@ -64,7 +64,6 @@ public class ExcelManager {
 
     public static String getTestData(String dataName) {
         try {
-            // TestData sheet'inde A sütununda veri adları, B sütununda değerler olduğunu varsayıyoruz
             FileInputStream fis = new FileInputStream(new File(DEFAULT_EXCEL_PATH));
             Workbook workbook = new XSSFWorkbook(fis);
             
@@ -74,8 +73,7 @@ public class ExcelManager {
                 fis.close();
                 throw new RuntimeException("TestData sheet'i bulunamadı");
             }
-            
-            // İlk satırdan başlayarak veri adını ara
+
             for (int i = 0; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
                 if (row != null) {
