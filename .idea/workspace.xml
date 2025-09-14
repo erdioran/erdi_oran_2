@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63a56cf9-742c-464d-a386-363a216bd553" name="Changes" comment="v1">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/base/DriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/base/DriverManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listener/AnnotationTransformer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listener/ExecutionListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listener/RetryAnalyzer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listener/SeleniumListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/listener/TestListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ExcelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ExcelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/base/AutomationMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/AutomationMethods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/RunCucumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/RunCucumberTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/RunnerFailed.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/StepDefinitionsGeneral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/cucumber/skeleton/StepDefinitionsGeneral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/objectRepository/cart.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/objectRepository/cart.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/cucumber.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/cucumber.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/io.cucumber.features/testinium.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/testinium.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/productInfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/productInfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testSuite/failed_test.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testSuite/test_runner.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,27 +20,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "erdioran"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;erdioran&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="b04d06ec-6bd4-46e0-8b1d-9d1679b196a3" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/erdioran/erdi_oran_2.git",
-    "accountId": "b04d06ec-6bd4-46e0-8b1d-9d1679b196a3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/erdioran/erdi_oran_2.git&quot;,
+    &quot;accountId&quot;: &quot;b04d06ec-6bd4-46e0-8b1d-9d1679b196a3&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-21.0.5/Contents/Home/lib/src.zip!/java.base/jdk/internal/misc/Unsafe.java" root0="SKIP_INSPECTION" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="32dppfSyDWwP58WoNpLqjpTQFZd" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -68,6 +53,7 @@
   "keyToString": {
     "JUnit.FailedRunCucumberTest.executor": "Debug",
     "JUnit.RunCucumberTest.executor": "Debug",
+    "JUnit.RunFailedCucumberTest.executor": "Debug",
     "Maven.Erdi_Oran_Web_Automation [test...].executor": "Run",
     "Maven.Erdi_Oran_Web_Automation [test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -92,6 +78,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.cucumber.skeleton" />
       <recent name="base" />
     </key>
   </component>
@@ -101,7 +88,7 @@
       <command value="mvn test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.RunCucumberTest">
+  <component name="RunManager" selected="JUnit.RunFailedCucumberTest">
     <configuration name="FailedRunCucumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Auto_Admin_Dashboard_UI" />
       <extension name="coverage">
@@ -127,6 +114,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="io.cucumber.skeleton" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.skeleton.RunCucumberTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunFailedCucumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Auto_Admin_Dashboard_UI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.skeleton.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io.cucumber.skeleton" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.skeleton.RunFailedCucumberTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -173,23 +175,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="/Users/erdioran/IdeaProjects2/erdi_oran_2/testSuite/test_runner.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Auto_Admin_Dashboard_UI" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/testSuite/test_runner.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RunFailedCucumberTest" />
         <item itemvalue="JUnit.RunCucumberTest" />
         <item itemvalue="JUnit.FailedRunCucumberTest" />
         <item itemvalue="Shell Script.run_with_retry.sh" />
         <item itemvalue="Shell Script.run_with_retry_simple.sh" />
-        <item itemvalue="TestNG./Users/erdioran/IdeaProjects2/erdi_oran_2/testSuite/test_runner.xml" />
       </list>
     </recent_temporary>
   </component>

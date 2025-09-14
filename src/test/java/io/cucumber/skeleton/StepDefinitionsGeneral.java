@@ -7,6 +7,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -15,7 +16,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.junit.jupiter.api.Assertions;
 import utils.ExcelManager;
 
 import java.time.Duration;
@@ -94,7 +94,7 @@ public class StepDefinitionsGeneral {
     public void getQuantityValue(String value) throws Exception {
         String quantity = AutomationMethods.getAriaLabel("SEPET_ADET_BOX");
         LOGGER.info("Seçili miktar: " + quantity);
-        Assertions.assertEquals(value + " adet", quantity);
+        Assert.assertEquals(value + " adet", quantity);
     }
 
     @And("Wait {int} second")
@@ -138,13 +138,13 @@ public class StepDefinitionsGeneral {
     @And("Assert {string} element is visible")
     public void assertElementIsVisible(String element) throws Exception {
         boolean isVisible = waitForElementToBeVisible(element, 10);
-        Assertions.assertTrue(isVisible, "Element '" + element + "' should be visible but was not found");
+        Assert.assertTrue("Element '" + element + "' should be visible but was not found", isVisible);
     }
 
     @And("Assert {string} element is not visible")
     public void assertElementIsNotVisible(String element) throws Exception {
         boolean isInvisible = waitForElementToBeInvisible(element, 10);
-        Assertions.assertTrue(isInvisible, "Element '" + element + "' should not be visible but was found");
+        Assert.assertTrue("Element '" + element + "' should not be visible but was found", isInvisible);
 
     }
 
@@ -155,12 +155,12 @@ public class StepDefinitionsGeneral {
 
     @And("Assert {string} element is {string} text")
     public void assertThatElementIsText(String element, String text) throws Exception {
-        Assertions.assertEquals(getText(element), text);
+        Assert.assertEquals(getText(element), text);
     }
 
     @And("Assert {string} element is {string} disable value")
     public void assertThatElementDisableValue(String element, String text) throws Exception {
-        Assertions.assertEquals(getDisableValue(element), text);
+        Assert.assertEquals(getDisableValue(element), text);
     }
 
     @And("Get list size {string}")
